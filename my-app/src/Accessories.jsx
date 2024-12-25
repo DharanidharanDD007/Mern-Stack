@@ -13,10 +13,11 @@ export default function Accessories(){
       {
         !cartItems?(
            <table>
+            <tr>
             <td>
-              <img src="https://images.pexels.com/photos/3568521/pexels-photo-3568521.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Mobile Accessories" width="150px" height="150px" onClick={showAccessories}/>
-            </td>
-            <td>Mobile Accessories</td>
+              <img src="https://images.pexels.com/photos/3568521/pexels-photo-3568521.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Mobile Accessories" width="250px" height="250px" onClick={showAccessories}/>
+            </td></tr>
+            <tr><td>Mobile Accessories</td></tr>
            </table>):
 
            (<AccessoriesCard/>)
