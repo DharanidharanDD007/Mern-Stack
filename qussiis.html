@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        form{
+             background-color: aquamarine;
+            justify-content: center;
+            border: 20px;
+            padding: 100px;
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form >
+        <h3>Quiz</h3>
+        <div>
+            
+               <div> 1. Which animal is known as the 'Ship of the Desert"?</div>
+               <div><input type="radio" name="n"> Camel</div>
+              <div>  <input type="radio"  name="n">Lion</div>
+                <div><input type="radio" name="n" >Tiger
+                </div>
+              <div> <input type="radio" name="n" >Snake</div>
+        </div>
+        <div>
+            
+            <div>2. How many days are there in a week?</div>
+            <div><input type="radio" name="a">9 days</div>
+           <div>  <input type="radio"  name="a">7 days</div>
+             <div><input type="radio" name="a" >5 days
+             </div>
+           <div> <input type="radio" name="a" >3 days</div>
+     </div>
+     <div>
+            
+        <div>3. How many letters are there in the English alphabet?</div>
+        <div><input type="radio" name="m">24</div>
+       <div>  <input type="radio"  name="m">21</div>
+         <div><input type="radio" name="m" >26
+         </div>
+       <div> <input type="radio" name="m" >25</div>
+ </div>
+    <div>
+            
+         <div>4.Baby frog is known as.......</div>
+         <div><input type="radio" name="e">Caterpillar</div>
+        <div>  <input type="radio"  name="e"> Larva</div>
+        <div><input type="radio" name="e" >Chick</div>
+        <div> <input type="radio" name="e" >Tadpole</div>
+   </div>
+   <div>
+            
+    <div>5.Name the National river of India?</div>
+    <div><input type="radio" name="f">Yamuna
+      </div>
+   <div>  <input type="radio"  name="f"> Ganga</div>
+   <div><input type="radio" name="f" >  Indus</div>
+   <div> <input type="radio" name="f" > Brahmaputra</div>
+</div>
+<div>
+            
+    <div>6. Which colour symbolises peace?</div>
+    <div><input type="radio" name="g">Red</div>
+   <div>  <input type="radio"  name="g">  Black</div>
+   <div><input type="radio" name="g" >   Yellow</div>
+   <div> <input type="radio" name="g" >  White</div>
+</div>
+<div>
+            
+    <div>7.  Name the largest planet of our Solar System?</div>
+    <div><input type="radio" name="p">Earth</div>
+   <div>  <input type="radio"  name="p">  Mars</div>
+   <div><input type="radio" name="p" >   Saturn
+    </div>
+   <div> <input type="radio" name="p" > Jupiter</div>
+</div>
+
+<div>
+            
+    <div>8. Who is the first citizen of India?</div>
+    <div><input type="radio" name="h">The President of India  same</div>
+   <div>  <input type="radio"  name="h"> Prime Minister of India</div>
+   <div><input type="radio" name="h" >   Governor of a State </div>
+   <div> <input type="radio" name="h" > Chief Justice of India</div>
+</div>
+
+<div>
+            
+    <div>9. Name the smallest continent?</div>
+    <div><input type="radio" name="j">Asia</div>
+   <div>  <input type="radio"  name="j"> Europe </div>
+   <div><input type="radio" name="j" >   Antarctica </div>
+   <div> <input type="radio" name="j" > Australia</div>
+</div>
+<div>
+            
+    <div>10. Name the country known as the Land of the Rising Sun?</div>
+    <div><input type="radio" name="k">Japan</div>
+   <div>  <input type="radio"  name="k">China</div>
+   <div><input type="radio" name="k" >   Thailand</div>
+   <div> <input type="radio" name="k" >South Korea</div>
+</div>
+ 
+   <button type="submit"  id="buttom"> submit
+    </form>
+
+
+    <script>
+      document.querySelector("form").addEventListener("submit", function (event) {
+    event.preventDefault(); 
+
+    let answers = {
+        n: "Camel",
+        a: "7 days",
+        m: "26",
+        e: "Tadpole",
+        f: "Ganga",
+        g: "White",
+        p: "Jupiter",
+        h: "The President of India",
+        j: "Australia",
+        k: "Japan"
+    };
+
+    let formData = new FormData(event.target);
+    let score = 0;
+    let totalQuestions = Object.keys(answers).length;
+    for (let [key, value] of formData.entries()) {
+        if (answers[key] === value) {
+            score++;
+        }
+    }
+    alert(`Your score is ${score} out of ${totalQuestions}`);
+});
+
+    </script>
+</body>
+</html>
