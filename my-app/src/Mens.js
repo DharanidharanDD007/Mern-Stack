@@ -8,7 +8,7 @@ export default function Mens(){
     setCartItems(true);
   }
   return(
-    <div>
+    <div className="mainback">
       {
         !cartItems?(
            <table>

@@ -9,7 +9,7 @@ export default function Accessories(){
     setCartItems(true);
   }
   return(
-    <div>
+    <div className="mainback">
       {
         !cartItems?(
            <table>
