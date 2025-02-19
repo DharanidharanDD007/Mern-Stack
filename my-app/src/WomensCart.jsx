@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { MensData } from "./Data";
+import { WomensData } from "./Data";
 
-// Reusable MenCard Component
-function MenCard({ id, src, name, price, addToCart }) {
+function WomenCard({ id, src, name, price, addToCart }) {
   return (
     <div className="transform">
       <img src={src} alt={name} width="200px" height="200px" />
@@ -22,15 +21,15 @@ function MenCard({ id, src, name, price, addToCart }) {
   );
 }
 
-// Men Collection Component
-function MenCollection({ title, mens = [], addToCart }) {
+// Women Collection Component
+function WomenCollection({ title, womens = [], addToCart }) {
   return (
-    <div className="men-collection">
-      <h2>{title} Collection</h2>
+    <div className="women-collection">
+      <h2>{title} Collections</h2>
       <div className="men-shirt-container">
-        {mens.length > 0 ? (
-          mens.map((item, index) => (
-            <MenCard
+        {womens.length > 0 ? (
+          womens.map((item, index) => (
+            <WomenCard
               key={item.id || index}
               id={item.id || index}
               src={item.src}
@@ -47,8 +46,8 @@ function MenCollection({ title, mens = [], addToCart }) {
   );
 }
 
-// Main Category Button Component
-function MensButton({ imgSrc, label, onClick }) {
+// Main Category Button for Women
+function WomenButton({ imgSrc, label, onClick }) {
   return (
     <div onClick={onClick} style={{ cursor: "pointer" }} className="entrance">
     <table className="cen">
@@ -67,26 +66,25 @@ function MensButton({ imgSrc, label, onClick }) {
 );
 }
 
-// Main MensCart Component
-export default function MensCart({ addToCart }) {
+export default function WomensCart({ addToCart }) {
   const [view, setView] = useState("main");
 
   const categories = {
-    Shirt: MensData.Shirt || [],
-    Pants: MensData.Pants || [],
-    Tshirt: MensData.Tshirt || [],
-    Shoes: MensData.Shoes || [],
-    Watch: MensData.Watch || [],
-    Cap: MensData.Cap || [],
+    Saree:  WomensData.saree || [],
+    Kurtas:  WomensData.kurtas || [],
+    Lehenga:  WomensData.lehenga || [],
+    Modern:  WomensData.modern || [],
+    Jean:  WomensData.jean || [],
+    Party:  WomensData.party || [],
   };
 
   const categoryImages = {
-    Shirt: "https://bananaclub.co.in/cdn/shop/files/BrownCheckedOvershirt_4.jpg?v=1732799591&width=500",
-    Pants: "https://freakins.com/cdn/shop/products/FreakinsMenswear-04416-min.jpg?v=1676450527",
-    Tshirt: "https://images.pexels.com/photos/8532616/pexels-photo-8532616.jpeg?auto=compress&cs=tinysrgb&w=600",
-    Shoes: "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?cs=srgb&dl=pexels-melvin-buezo-1253763-2529148.jpg&fm=jpg",
-    Watch: "https://images.pexels.com/photos/280250/pexels-photo-280250.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    Cap: "https://images.pexels.com/photos/1124465/pexels-photo-1124465.jpeg?auto=compress&cs=tinysrgb&w=600",
+    Saree: "https://i.pinimg.com/236x/17/5d/a9/175da9a9bd9e3819ac2e8f6bce6a9bc6.jpg",
+    Kurtas: "https://i.pinimg.com/236x/eb/a1/e1/eba1e1c19eff486eeb48dc0be6fa1796.jpg",
+    Lehenga: "https://i.pinimg.com/236x/53/9c/4d/539c4d680ebfeeb0f7ef6ce9f6474833.jpg",
+    Modern: "https://i.pinimg.com/236x/48/5c/1e/485c1ed0b075573725940d68783227ce.jpg",
+    Jean: "https://i.pinimg.com/236x/39/c7/aa/39c7aa399fad53646c4729541c0606f3.jpg",
+    Party: "https://i.pinimg.com/236x/0a/e6/df/0ae6df544daeb5bd6593edc1891e540d.jpg",
   };
 
   return (
@@ -94,7 +92,7 @@ export default function MensCart({ addToCart }) {
       {view === "main" ? (
         <>
           {Object.keys(categories).map((category) => (
-            <MensButton
+            <WomenButton
               key={category}
               imgSrc={categoryImages[category]}
               label={category}
@@ -110,7 +108,7 @@ export default function MensCart({ addToCart }) {
           </button>
 
           {/* Render Selected Category */}
-          <MenCollection title={view} mens={categories[view]} addToCart={addToCart} />
+          <WomenCollection title={view} womens={categories[view]} addToCart={addToCart} />
         </>
       )}
     </div>
